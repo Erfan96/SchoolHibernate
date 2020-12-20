@@ -80,4 +80,12 @@ public class Student {
     public void setTeachers(Set<Teacher> teachers) {
         this.teachers = teachers;
     }
+
+    public Set<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(Set<Address> addresses) {
+        this.addresses = addresses;
+    }
 }
