@@ -30,6 +30,10 @@ public class Teacher {
     @Column(name = "birthday", nullable = false)
     private Date birthday;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private Address address;
+
     @ManyToMany(mappedBy = "teachers")
     private Set<Student> students;
 
