@@ -30,6 +30,9 @@ public class Student {
               inverseJoinColumns = @JoinColumn(name = "TEACHER_ID"))
     private Set<Teacher> teachers;
 
+    @OneToMany(mappedBy = "student")
+    private Set<Address> addresses;
+
     public Integer getId() {
         return id;
     }
