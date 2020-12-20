@@ -29,6 +29,9 @@ public class Address {
     @JoinColumn(name = "Student", nullable = false)
     private Student student;
 
+    @OneToOne(mappedBy = "address")
+    private Teacher teacher;
+
     public Integer getId() {
         return id;
     }
