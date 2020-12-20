@@ -26,7 +26,7 @@ public class Address {
     private String postalCode;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Student", nullable = false)
+    @JoinColumn(name = "Student")
     private Student student;
 
     @OneToOne(mappedBy = "address")
