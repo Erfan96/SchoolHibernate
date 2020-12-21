@@ -31,6 +31,7 @@ public class App {
                  "tehran", "kh lesani- k jam", "356-789-55"));
 
 
+
         entityManager.getTransaction().commit();
 
         entityManager.close();
@@ -79,6 +80,42 @@ public class App {
         address.setPostalCode(postalCode);
         addressDao.save(address);
         return address;
+    }
+
+    private static Student returnStudent(Integer id){
+        return studentDao.load(id);
+    }
+
+    private static Teacher returnTeacher(Integer id){
+        return teacherDao.load(id);
+    }
+
+    private static Address returnAddress(Integer id){
+        return addressDao.load(id);
+    }
+
+    private static void deleteStudent(Integer id){
+        if (studentDao.load(id) != null) {
+            Student student = studentDao.load(id);
+            studentDao.delete(student);
+        }
+        else System.out.println("Doesn't exist student .");
+    }
+
+    private static void deleteTeacher(Integer id){
+        if (teacherDao.load(id) != null) {
+            Teacher teacher = teacherDao.load(id);
+            teacherDao.delete(teacher);
+        }
+        else System.out.println("Doesn't exist teacher .");
+    }
+
+    private static void deleteAddress(Integer id){
+        if (addressDao.load(id) != null) {
+            Address address = addressDao.load(id);
+            addressDao.delete(address);
+        }
+        else System.out.println("Doesn't exist address .");
     }
 
     private static Date parseDate(String date){
