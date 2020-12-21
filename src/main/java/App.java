@@ -5,7 +5,6 @@ import entities.Address;
 import entities.Student;
 import entities.Teacher;
 import util.JpaUtil;
-
 import javax.persistence.EntityManager;
 import java.sql.Date;
 import java.text.ParseException;
