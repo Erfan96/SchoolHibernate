@@ -10,7 +10,7 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "number", nullable = false, length = 7)
+    @Column(name = "number", nullable = false, length = 7, unique = true)
     private Integer number;
 
     @Column(name = "state", nullable = false, length = 20)
