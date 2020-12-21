@@ -17,5 +17,11 @@ public abstract class EntityDao<T, U> {
         return entityManager.find(getEntityClass(), id);
     }
 
+    public void delete(U id){
+        entityManager.remove(id);
+    }
+
+
+
     public abstract Class<T> getEntityClass();
 }
