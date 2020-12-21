@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.HashSet;
 import java.util.Set;
 public class App {
 
@@ -24,14 +25,33 @@ public class App {
 
         entityManager.getTransaction().begin();
 
+        createTeacher("Ali", "Karimi", "t1", 25000.0, "1990-11-02",
+                createAddress(1112233, "tehran",
+                        "tehran", "kh rahim- k yas", "444-189-33"));
 
         createTeacher("Kazem", "Asadi", "t2", 30000.0, "1995-06-22",
          createAddress(7778899, "tehran",
                  "tehran", "kh lesani- k jam", "356-789-55"));
 
+        Set<Teacher> teachers = new HashSet<Teacher>();
+        teachers.add(teacherDao.load(4));
+        teachers.add(teacherDao.load(5));
+
+        createAddress(6644555, "tehran",
+                "tehran", "kh ebadi- k sadegh", "222-336-97");
+
+        createAddress(8822457, "tehran",
+                "tehran", "kh sharifi- k adel", "695-284-37");
+
+        Set<Address> addresses = new HashSet<Address>();
+        addresses.add(addressDao.load(6));
+        addresses.add(addressDao.load(7));
+        createStudent("Hasan", "Soltani",
+                "s1", "2000-10-05", teachers, addresses);
 
 
-        entityManager.getTransaction().commit();
+         entityManager.getTransaction().commit();
+
 
         entityManager.close();
         JpaUtil.shutdown();
