@@ -25,10 +25,6 @@ public class Address {
     @Column(name = "postal_code", nullable = false, length = 10)
     private String postalCode;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Student")
-    private Student student;
-
     @OneToOne(mappedBy = "address")
     private Teacher teacher;
 
@@ -78,14 +74,6 @@ public class Address {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
-    }
-
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
     }
 
     public Teacher getTeacher() {
